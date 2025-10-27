@@ -12,8 +12,8 @@ app.get('/produtos', (req, res) => {
 
 app.post('/produtos', (res, req) => {
     products.push(req.body)
-    
+
     res.json(req.body)
 })
 
-app.listen(8000, () => console.log('Servidor Funcionando'))
+app.listen(3000, () => console.log('Servidor Funcionando'))
