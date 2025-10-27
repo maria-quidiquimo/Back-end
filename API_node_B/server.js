@@ -4,6 +4,8 @@ const app = express()
  
 const users = []
 
+app.use(express.json())
+
 app.get('/usuarios', (req, res) => {
     res.json(users)
 })
