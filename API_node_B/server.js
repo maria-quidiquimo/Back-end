@@ -7,8 +7,7 @@ const users = []
 app.use(express.json())
 
 app.get('/usuarios', (req, res) => {
-    // res.json(users)
-    res.status(200).json(users)
+    res.json(users)
 })
 
 app.post('/usuarios', (req,res) => {
