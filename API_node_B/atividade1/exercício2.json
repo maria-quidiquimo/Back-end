@@ -5,5 +5,14 @@
         "nome": "Celso",
         "area": "Desenvolvimento Back-End"
     },
-    "aluno": [{"nome":"Maria Eduarda", "matricula": 2851}]
+    "aluno": [
+        {
+            "nome":"Maria Eduarda",
+            "matricula": 2851
+        },
+        {
+            "nome": "João Lucas",
+            "matricula": 2158
+        }
+    ]
 }
