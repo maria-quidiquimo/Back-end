@@ -1,0 +1,33 @@
+Padrões de dados: JSON e XML
+
+O JSON é um padrão para armzenar e transmitir a informação, é uma forma fácil e simples de organizar. Pode estruturar ele como se fosse um objeto (pega o documento e transforma ele em objeto). Padrão leve e fácil para leitura;
+
+A sintaxe do JSON é entre chave-valor, tem que ter sempre aspas duplas (" "), não pode ser simples (' '), a separação do atributos é entre vírgulas, se não tiver não funciona;
+exemplo:
+{
+   "nome": "Maria",
+   "idade": "16 anos",
+   "aprovada": "true"
+}
+
+No JSON podemos trabalhar com alguns tipos de dados: 
+a de texto: string " ";
+a de número (números inteiros ou decimais): number;
+de verdadeiro ou falso: boolean (true or false);
+lista de valores: array[ ];
+aninhamento: object {{ }};
+de valor nulo ou vazio: null.
+
+
+O XML vem de uma linguagem de marcação extensível. Tem função parecida com o do JSON.
+Diferente do HTML você cria suas próprias tags, por exemplo você tem no HTML <p>, no XML você pode criar a sua própria
+Exemplo:
+<pessoa>
+  <nome> Maria </nome>
+  <idade> 16 anos </idade>
+</pessoa>
+
+
+A diferença entre o XML e o JSON é que o XML ele é mais verboso que o JSON e é baseado em tags igual o HTML e não em chave-valor igual o JSON.
+
+
