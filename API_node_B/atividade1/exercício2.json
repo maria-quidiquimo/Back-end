@@ -5,5 +5,5 @@
         "nome": "Celso",
         "area": "Desenvolvimento Back-End"
     },
-    "aluno": ["nome", "matricula"]
+    "aluno": [{"nome":"Maria Eduarda", "matricula": 2851}]
 }
