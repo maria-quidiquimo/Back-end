@@ -1,0 +1,17 @@
+Back-End e Front - End
+
+- No front end, temos a estrutura física do site por
+exemplo uma tela de login.
+- No back end, temos as informações que contém
+na tela da estrutura física.
+- Tudo feito no protocolo HTTP. (GET, POST, PUT,
+ DELETE).
+- Tem que ter a comunicação entre elas. O front faz 
+as requisições e o back end manda as respostas. 
+- Utilizamos npm init -y para criação de um json.
+Ele vai trazer informações de execução do meu
+projeto, qualquer informação, até de comporta-
+mento. 
+- rodar ela em localhost, e em qual porta ela deve ser ouvida. 
+- utilizar node --watch server.js  para ver se o código está funcionando.
+
