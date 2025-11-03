@@ -12,5 +12,19 @@
         "cidade": "São Paulo",
         "cep": 13312330
     },
-    "itens":[{"id_produto":"bolsa001", "nome_produto": "bolsa artesanal", "quantidade": 4, "preco_unitario": 70}, {"id_produto": "saia002", "nome_produto":"saida de praia", "quantidade": 3, "preco_unitario": 50}]
+    "itens":[
+        {
+            "id_produto":"bolsa001", 
+            "nome_produto": "bolsa artesanal", 
+            "quantidade": 4, 
+            "preco_unitario": 70
+        }, 
+
+        {
+            "id_produto": "saia002", 
+            "nome_produto":"saida de praia",
+            "quantidade": 3, 
+            "preco_unitario": 50
+        }
+    ]
 }
