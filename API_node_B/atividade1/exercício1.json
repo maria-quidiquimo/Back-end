@@ -1,3 +1,9 @@
 {
-    
+    "matricula": 10234,
+    "nome_completo": "Maria Eduarda Quidiquimo Barreto",
+    "email":"dudaqbarreto@aluno.senai.br",
+    "idade": 16,
+    "bolsista": true,
+    "media_final": 8.5,
+    "curso": null
 }
