@@ -1,0 +1,9 @@
+{
+    "codigo_turma": "DETS-I-1B-25CT/S",
+    "periodo": "Integral",
+    "professor":{
+        "nome": "Celso",
+        "area": "Desenvolvimento Back-End"
+    },
+    "aluno": ["nome", "matricula"]
+}
