@@ -1,0 +1,19 @@
+Rest API
+
+É uma arquitura ou um formato de trabalhar, para aplicar uma API. 
+É conhecida, também, como RESTful API.
+Trabalha com modelo stateless: Cada requisição feita pelo cliente é mandada para o servidor e ele precisa ter as informações necessárias para ser respondida a requisição. A requisição anterior não é armazenada pelo servidor, isso amplifica o servidor e melhora escalabilidade.
+Trabalha com Uniform Interface: Essa é a base do REST e define que a comunicação deve ser padronizada usando:
+
+● Recursos identificados por URLs - (ex: localhost/usuarios/123 - identifica o
+usuário com ID 123);
+
+- Operações padronizadas usando métodos HTTP:
+ GET
+ POST (pode alterar ou excluir usuários)
+ PUT
+ DELETE
+
+- Mensagens auto explicativas (requisições e respostas com formatos
+padronizados, como JSON).
+
