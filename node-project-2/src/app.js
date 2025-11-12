@@ -19,4 +19,8 @@ const livros = [
 }
 ];
 
+app.get("/", (req, res) => {
+    res.status(200).send("Livraria Saber e Cia")
+})
+
 export default app
