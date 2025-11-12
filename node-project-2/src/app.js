@@ -50,6 +50,14 @@ app.put("/livros/:isbn", (req,res) => {
     livros[index].ano_publicacao = req.body.ano_publicacao
 
     res.status(200).json(livros[index])
-})
+});
+
+app.delete("/livros/:isbn", (req,res) => {
+    const index = buscarLivro(req.params.isbn)
+    livros.splice(index, 1)
+    res.status(200).json(livros)
+});
+
+
 
 export default app
