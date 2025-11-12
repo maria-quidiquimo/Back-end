@@ -21,6 +21,10 @@ const livros = [
 
 app.get("/", (req, res) => {
     res.status(200).send("Livraria Saber e Cia")
-})
+});
+
+app.get("/livros", (req, res) => {
+    res.status(200).json(livros)
+});
 
 export default app
