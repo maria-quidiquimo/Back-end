@@ -6,18 +6,24 @@ app.use(express.json())
 
 const livros = [
 {
-    isbn:"999-98765-432",
+    isbn:1,
     titulo_livro:"Java - Como Programar",
     editora:"Saber",
     ano_publicacao:"2002"
 },
 {
-    isbn:"987-54321-321",
+    isbn:2,
     titulo_livro:"Java - Como Programar de Verdade",
     editora:"Saber",
     ano_publicacao:"2008"
 }
 ];
+
+function buscarLivro(isbn){
+    return livros.findIndex(livro => {
+        return livro.isbn === Number(isbn)
+    })
+}
 
 app.get("/", (req, res) => {
     res.status(200).send("Livraria Saber e Cia")
@@ -26,5 +32,12 @@ app.get("/", (req, res) => {
 app.get("/livros", (req, res) => {
     res.status(200).json(livros)
 });
+
+app.get("/livros/:isbn", (req,res) => {
+    const index = buscarLivro(req.params.isbn)
+    res.status(200).json(livros[index])
+});
+
+
 
 export default app
