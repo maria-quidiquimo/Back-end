@@ -1,0 +1,4 @@
+Usuário mongo db: mariaquidiquimo_db_user
+Senha mongo db: M4R1A_12012009
+
+Código: mongodb+srv://mariaquidiquimo_db_user:M4R1A_12012009@biblioteca.akpq6ew.mongodb.net/?appName=Biblioteca
