@@ -9,9 +9,12 @@ na tela da estrutura física.
 - Tem que ter a comunicação entre elas. O front faz 
 as requisições e o back end manda as respostas. 
 - Utilizamos npm init -y para criação de um json.
+- adicionar type: module no json para poder usar modulos avançados;
 Ele vai trazer informações de execução do meu
 projeto, qualquer informação, até de comporta-
 mento. 
+a instalação do express ajuda a criar um framework, onde tem ferramentas para a criação do seu API.
 - rodar ela em localhost, e em qual porta ela deve ser ouvida. 
 - utilizar node --watch server.js  para ver se o código está funcionando.
 
+- Coloca : no new request para retornar qualquer valor que você queira.
