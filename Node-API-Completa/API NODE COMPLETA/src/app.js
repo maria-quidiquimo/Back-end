@@ -72,11 +72,34 @@ const autores = [
     }
 ]
 
+app.get('/autores', (req, res) => {
+    res.json(autores);
+}); 
+
 function buscarAutor(id_autor){
     return autores.findIndex(autor => {
-        return autor.isbn === Number(id_autor)
+        return autor.id_autor === Number(id_autor)
     })
 }
 
+app.get("/autores/:id", (req,res) => {
+    res.json(autores[buscarAutor(req.params.id)])
+})
+
+app.post("/autores", (req,res) => { 
+    autores.push(req.body); 
+    res.status(201).json(req.body)
+})
+app.put("/autores/:id", (req,res) =>{
+    const index = buscarAutor(req.params.id)
+    autores[index].nome_autor = req.body.nome_autor
+    autores[index].nacionalidade = req.body.nacionalidade
+    res.json(autores[index])
+})
+app.delete("/autores/:id", (req,res)=>{
+    const index = buscarAutor(req.params.id)
+    autores.splice(index, 1)
+    res.json(autores)
+})
 
 export default app
