@@ -77,12 +77,12 @@ app.get('/autores', (req, res) => {
 }); 
 
 function buscarAutor(id_autor){
-    return autores.findIndex(autor => {
-        return autor.id_autor === Number(id_autor)
+    return autores.findIndex(autores => {
+        return autores.id_autor === Number(id_autor)
     })
 }
 
-app.get("/autores/:id", (req,res) => {
+app.get("/autores/:id_autor", (req,res) => {
     res.json(autores[buscarAutor(req.params.id_autor)])
 })
 
@@ -90,10 +90,13 @@ app.post("/autores", (req,res) => {
     autores.push(req.body); 
     res.status(201).json(req.body)
 })
-app.put("/autores/:id", (req,res) =>{
+app.put("/autores/:id_autor", (req,res) =>{
+
     const index = buscarAutor(req.params.id_autor)
+
     autores[index].nome_autor = req.body.nome_autor
     autores[index].nacionalidade = req.body.nacionalidade
+    
     res.json(autores[index])
 })
 app.delete("/autores/:id", (req,res)=>{
