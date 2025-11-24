@@ -59,7 +59,4 @@ app.delete("/livros/:isbn", (req,res) =>{
     res.status(200).json(livros)
 })
 
-
-
-
 export default app
