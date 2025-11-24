@@ -145,4 +145,47 @@ app.delete("/autorlivro/:id", (req,res)=>{
     res.json(autorLivro)
 })
 
+const exemplar = [
+    {
+        id_exemplar: 1,
+        status_exemplar: "disponível",
+        isbn: 2
+    },
+    {
+        id_exemplar: 2,
+        status_exemplar: "emprestado",
+        isbn: 1
+    }
+]
+
+app.get('/exemplar', (req, res) => {
+    res.json(exemplar);
+}); 
+
+function buscarExemplar(id_exemplar){
+    return exemplar.findIndex(exemplar => {
+        return exemplar.id === Number(id_exemplar)
+    })
+}
+
+app.get("/exemplar", (req,res) => {
+    res.json(exemplar[buscarExemplar(req.params.id)])
+})
+
+app.post("/exemplar", (req,res) => { 
+    exemplar.push(req.body); 
+    res.status(201).json(req.body)
+})
+app.put("/exemplar/:id_exemplar", (req,res) =>{
+    const index = buscarExemplar(req.params.id)
+    exemplar[index].id_exemplar = req.body.id_exemplar
+    exemplar[index].status_exemplar = req.body.status_exemplar
+    res.json(exemplar[index])
+})
+app.delete("/exemplar/:id_exemplar", (req,res)=>{
+    const index = buscarExemplar(req.params.id)
+    exemplar.splice(index, 1)
+    res.json(exemplar)
+})
+
 export default app
