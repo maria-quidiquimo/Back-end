@@ -59,4 +59,24 @@ app.delete("/livros/:isbn", (req,res) =>{
     res.status(200).json(livros)
 })
 
+const autores = [
+    {
+        id_autor: 1,
+        nome_autor:"Machado de Assis",
+        nacionalidade:"Brasileiro"
+    },
+    {
+        id_autor: 2,
+        nome_autor:"Clarisse Lispector",
+        nacionalidade:"Brasileira"
+    }
+]
+
+function buscarAutor(id_autor){
+    return autores.findIndex(autor => {
+        return autor.isbn === Number(id_autor)
+    })
+}
+
+
 export default app
