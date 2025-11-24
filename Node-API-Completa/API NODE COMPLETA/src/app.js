@@ -83,7 +83,7 @@ function buscarAutor(id_autor){
 }
 
 app.get("/autores/:id", (req,res) => {
-    res.json(autores[buscarAutor(req.params.id)])
+    res.json(autores[buscarAutor(req.params.id_autor)])
 })
 
 app.post("/autores", (req,res) => { 
@@ -91,13 +91,13 @@ app.post("/autores", (req,res) => {
     res.status(201).json(req.body)
 })
 app.put("/autores/:id", (req,res) =>{
-    const index = buscarAutor(req.params.id)
+    const index = buscarAutor(req.params.id_autor)
     autores[index].nome_autor = req.body.nome_autor
     autores[index].nacionalidade = req.body.nacionalidade
     res.json(autores[index])
 })
 app.delete("/autores/:id", (req,res)=>{
-    const index = buscarAutor(req.params.id)
+    const index = buscarAutor(req.params.id_autor)
     autores.splice(index, 1)
     res.json(autores)
 })
@@ -169,7 +169,7 @@ function buscarExemplar(id_exemplar){
 }
 
 app.get("/exemplar", (req,res) => {
-    res.json(exemplar[buscarExemplar(req.params.id)])
+    res.json(exemplar[buscarExemplar(req.params.id_exemplar)])
 })
 
 app.post("/exemplar", (req,res) => { 
@@ -177,13 +177,13 @@ app.post("/exemplar", (req,res) => {
     res.status(201).json(req.body)
 })
 app.put("/exemplar/:id_exemplar", (req,res) =>{
-    const index = buscarExemplar(req.params.id)
-    exemplar[index].id_exemplar = req.body.id_exemplar
-    exemplar[index].status_exemplar = req.body.status_exemplar
+    const index = buscarExemplar(req.params.id_exemplar)
+    exemplar[index].status_exemplar = req.body.status_exemplar    
+    exemplar[index].isbn = req.body.isbn
     res.json(exemplar[index])
 })
 app.delete("/exemplar/:id_exemplar", (req,res)=>{
-    const index = buscarExemplar(req.params.id)
+    const index = buscarExemplar(req.params.id_exemplar)
     exemplar.splice(index, 1)
     res.json(exemplar)
 })
@@ -214,7 +214,7 @@ function buscarMembros(id_membro){
 }
 
 app.get("/membros", (req,res) => {
-    res.json(membros[buscarMembros(req.params.id)])
+    res.json(membros[buscarMembros(req.params.id_membro)])
 })
 
 app.post("/membros", (req,res) => { 
@@ -222,17 +222,68 @@ app.post("/membros", (req,res) => {
     res.status(201).json(req.body)
 })
 app.put("/membros/:id_membro", (req,res) =>{
-    const index = buscarMembros(req.params.id)
-    membros[index].id_membro = req.body.id_membro
+    const index = buscarMembros(req.params.id_membro)
     membros[index].nome_membro = req.body.nome_membro
     membros[index].endereco = req.body.endereco
     membros[index].telefone = req.body.telefone
     res.json(membros[index])
 })
 app.delete("/membros/:id_membro", (req,res)=>{
-    const index = buscarMembros(req.params.id)
+    const index = buscarMembros(req.params.id_membro)
     membros.splice(index, 1)
     res.json(membros)
+})
+
+const emprestimos = [
+    {
+        id_emprestimo: 1,
+        data_emprestimo: "12-01-2025",
+        data_devolucao: "13-02-2025",
+        data_devolucao_efetiva: "23-02-2025",
+        id_exemplar: 1,
+        id_membro: 2
+    },
+    {
+        id_emprestimo: 2,
+        data_emprestimo: "12-02-2025",
+        data_devolucao: "13-03-2025",
+        data_devolucao_efetiva: "23-3-2025",
+        id_exemplar: 2,
+        id_membro: 1
+    }
+]
+
+app.get('/emprestimos', (req, res) => {
+    res.json(emprestimos);
+}); 
+
+function verEmprestimos(id_emprestimo){
+    return emprestimos.findIndex(emprestimos => {
+        return emprestimos.id_emprestimo === Number(id_emprestimo)
+    })
+}
+
+app.get("/emprestimos", (req,res) => {
+    res.json(emprestimos[verEmprestimos(req.params.id_emprestimo)])
+})
+
+app.post("/emprestimos", (req,res) => { 
+    emprestimos.push(req.body); 
+    res.status(201).json(req.body)
+})
+app.put("/emprestimos/:id_emprestimo", (req,res) =>{
+    const index = verEmprestimos(req.params.id_emprestimo)
+    emprestimos[index].data_emprestimo = req.body.data_emprestimo
+    emprestimos[index].data_devolucao = req.body.data_devolucao
+    emprestimos[index].data_devolucao_efetiva = req.body.data_devolucao_efetiva
+    emprestimos[index].id_exemplar = req.body.id_exemplar
+    emprestimos[index].id_membro = req.body.id_membro
+    res.json(emprestimos[index])
+})
+app.delete("/emprestimos/:id_emprestimo", (req,res)=>{
+    const index = verEmprestimos(req.params.id_emprestimo)
+    emprestimos.splice(index, 1)
+    res.json(emprestimos)
 })
 
 export default app
