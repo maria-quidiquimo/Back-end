@@ -188,4 +188,51 @@ app.delete("/exemplar/:id_exemplar", (req,res)=>{
     res.json(exemplar)
 })
 
+const membros = [
+    {
+        id_membro: 1,
+        nome_membro: "Maria",
+        endereco: "Rua Aurora das Dores",
+        telefone: "11996620113"
+    },
+    {
+        id_membro: 2,
+        nome_membro: "Daniel",
+        endereco: "Rua Russia",
+        telefone: "11962928877"
+    }
+]
+
+app.get('/membros', (req, res) => {
+    res.json(membros);
+}); 
+
+function buscarMembros(id_membro){
+    return membros.findIndex(membros => {
+        return membros.id === Number(id_membro)
+    })
+}
+
+app.get("/membros", (req,res) => {
+    res.json(membros[buscarMembros(req.params.id)])
+})
+
+app.post("/membros", (req,res) => { 
+    membros.push(req.body); 
+    res.status(201).json(req.body)
+})
+app.put("/membros/:id_membro", (req,res) =>{
+    const index = buscarMembros(req.params.id)
+    membros[index].id_membro = req.body.id_membro
+    membros[index].nome_membro = req.body.nome_membro
+    membros[index].endereco = req.body.endereco
+    membros[index].telefone = req.body.telefone
+    res.json(membros[index])
+})
+app.delete("/membros/:id_membro", (req,res)=>{
+    const index = buscarMembros(req.params.id)
+    membros.splice(index, 1)
+    res.json(membros)
+})
+
 export default app
