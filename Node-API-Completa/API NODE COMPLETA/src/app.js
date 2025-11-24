@@ -102,4 +102,47 @@ app.delete("/autores/:id", (req,res)=>{
     res.json(autores)
 })
 
+const autorLivro = [
+    {
+        id: 1,
+        id_autor: 1,
+        isbn: 1
+    },
+    {
+        id: 2,
+        id_autor: 2,
+        isbn: 2
+    }
+]
+
+app.get('/autorlivro', (req, res) => {
+    res.json(autorLivro);
+}); 
+
+function vizualizarAutorLivro(id){
+    return autorLivro.findIndex(autorLivro => {
+        return autorLivro.id === Number(id)
+    })
+}
+
+app.get("/autorlivro", (req,res) => {
+    res.json(autorLivro[vizualizarAutorLivro(req.params.id)])
+})
+
+app.post("/autorlivro", (req,res) => { 
+    autorLivro.push(req.body); 
+    res.status(201).json(req.body)
+})
+app.put("/autorlivro/:id", (req,res) =>{
+    const index = vizualizarAutorLivro(req.params.id)
+    autorLivro[index].id_autor = req.body.id_autor
+    autores[index].isbn = req.body.isbn
+    res.json(autorLivro[index])
+})
+app.delete("/autorlivro/:id", (req,res)=>{
+    const index = vizualizarAutorLivro(req.params.id)
+    autorLivro.splice(index, 1)
+    res.json(autorLivro)
+})
+
 export default app
