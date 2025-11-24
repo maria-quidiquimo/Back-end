@@ -83,7 +83,7 @@ function buscarAutor(id_autor){
 }
 
 app.get("/autores/:id_autor", (req,res) => {
-    res.json(autores[buscarAutor(req.params.id_autor)])
+    res.status(200).json(autores[buscarAutor(req.params.id_autor)])
 })
 
 app.post("/autores", (req,res) => { 
@@ -96,7 +96,7 @@ app.put("/autores/:id_autor", (req,res) =>{
 
     autores[index].nome_autor = req.body.nome_autor
     autores[index].nacionalidade = req.body.nacionalidade
-    
+
     res.json(autores[index])
 })
 app.delete("/autores/:id", (req,res)=>{
@@ -129,7 +129,7 @@ function vizualizarAutorLivro(id){
 }
 
 app.get("/autorlivro", (req,res) => {
-    res.json(autorLivro[vizualizarAutorLivro(req.params.id)])
+    res.status(200).json(autorLivro[vizualizarAutorLivro(req.params.id)])
 })
 
 app.post("/autorlivro", (req,res) => { 
@@ -172,7 +172,7 @@ function buscarExemplar(id_exemplar){
 }
 
 app.get("/exemplar", (req,res) => {
-    res.json(exemplar[buscarExemplar(req.params.id_exemplar)])
+    res.status(200).json(exemplar[buscarExemplar(req.params.id_exemplar)])
 })
 
 app.post("/exemplar", (req,res) => { 
@@ -217,7 +217,7 @@ function buscarMembros(id_membro){
 }
 
 app.get("/membros", (req,res) => {
-    res.json(membros[buscarMembros(req.params.id_membro)])
+    res.status(200).json(membros[buscarMembros(req.params.id_membro)])
 })
 
 app.post("/membros", (req,res) => { 
@@ -267,7 +267,7 @@ function verEmprestimos(id_emprestimo){
 }
 
 app.get("/emprestimos", (req,res) => {
-    res.json(emprestimos[verEmprestimos(req.params.id_emprestimo)])
+    res.status(200).json(emprestimos[verEmprestimos(req.params.id_emprestimo)])
 })
 
 app.post("/emprestimos", (req,res) => { 
