@@ -86,7 +86,7 @@ app.get("/autores/:id_autor", (req,res) => {
     res.status(200).json(autores[buscarAutor(req.params.id_autor)])
 })
 
-// app.get("/autores/:id_autor", (req, res) => { const index = buscarAutor(req.params.id_autor) res.status(200).json(autor[index])})
+// app.get("/autores/:id_autor", (req, res) => {                                                                           const index = buscarAutor(req.params.id_autor)                                                                              res.status(200).json(autor[index])})
 
 app.post("/autores", (req,res) => { 
     autores.push(req.body); 
@@ -102,6 +102,7 @@ app.put("/autores/:id_autor", (req,res) =>{
 
     res.json(autores[index])
 })
+
 app.delete("/autores/:id", (req,res)=>{
     const index = buscarAutor(req.params.id_autor)
     autores.splice(index, 1)
