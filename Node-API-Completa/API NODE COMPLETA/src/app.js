@@ -79,7 +79,7 @@ function buscarAutor(id_autor){
 }
 
 app.get('/autores', (req, res) => {
-    res.json(autores);
+    res.status(200).json(autores);
 }); 
 
 app.get("/autores/:id_autor", (req,res) => {
