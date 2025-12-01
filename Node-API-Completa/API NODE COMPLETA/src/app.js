@@ -72,15 +72,15 @@ const autores = [
     }
 ]
 
-app.get('/autores', (req, res) => {
-    res.json(autores);
-}); 
-
 function buscarAutor(id_autor){
     return autores.findIndex(autores => {
         return autores.id_autor === Number(id_autor)
     })
 }
+
+app.get('/autores', (req, res) => {
+    res.json(autores);
+}); 
 
 app.get("/autores/:id_autor", (req,res) => {
     res.status(200).json(autores[buscarAutor(req.params.id_autor)])
