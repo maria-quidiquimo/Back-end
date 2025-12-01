@@ -100,7 +100,7 @@ app.put("/autores/:id_autor", (req,res) =>{
     autores[index].nome_autor = req.body.nome_autor
     autores[index].nacionalidade = req.body.nacionalidade
 
-    res.json(autores[index])
+    res.status(200).json(autores[index])
 })
 
 app.delete("/autores/:id", (req,res)=>{
