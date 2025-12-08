@@ -20,6 +20,8 @@ function buscarMusica(id){
     })
 }
 
+// no return deveria ser m.id === Number(id)
+
 app.get("/", (req, res) => {
     res.status(200).send("CRUD de Músicas")
 })
