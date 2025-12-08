@@ -15,7 +15,7 @@ const musica = [
 ]
 
 function buscarMusica(id){
-    return musica.findIndex(m => {
+    return musica.findIndex(musica => {
         return musica.id === Number(id)
     })
 }
